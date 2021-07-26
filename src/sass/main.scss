@@ -5,3 +5,15 @@ $btn-color: linear-gradient(51deg, #ff8e49, #f0690a, #ff8e49);
     box-sizing: border-box;
     font-size: 16px;
   }
+  button{
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    background-image: $btn-color;
+    background-size: 200% 100%;
+    transition: 0.3s all;
+    &:hover {
+      background-position: 100%;
+    }
+  }

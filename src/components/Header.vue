@@ -121,17 +121,6 @@ export default {
     button {
       height: 34px;
       width: 112px;
-      cursor: pointer;
-      border-radius: 5px;
-      border: none;
-      color: #fff;
-      background-image: $btn-color;
-      background-size: 200% 100%;
-      transition: 0.3s all;
-
-      &:hover {
-        background-position: 100%;
-      }
     }
   }
   .banner-img {
