@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <Header :isHome="true" :logo="require('@/assets/logo_upminer.png')" />
-    <Nav :items="items"/>
+    <Nav :items="itemsDefault" :cardNav="cardNav" />
 
     <div class="content-select">
       <div class="select-div">
@@ -11,6 +11,7 @@
           v-model="selected_ord"
           :reduce="(ordenation) => ordenation.id"
           label="name"
+          @change="(e) => sortCards(e.target.value)"
         >
           <option v-for="opt in ordenation" :key="opt.id" :value="opt.id">
             {{ opt.name }}
@@ -40,7 +41,90 @@ export default {
   data: function() {
     return {
       selected_ord: 0,
- items: [
+      itemsDefault: [
+        { title: "Todos", id: 0, icon: "globe" },
+        {
+          title: "Profissional",
+          id: 1,
+          icon: "briefcase",
+          price:29.99,
+          card: true,
+          description:"",
+        },
+        {
+          title: "Reguladores",
+          id: 2,
+          icon: "university",
+          price:29.99,
+          card: true,
+          description:
+            "O aplicativo Balanço Patrimonial realiza a consulta de todos os balanços que são publicados nos Diários Oficiais de empresas S.A., de capital aberto e limitadas (LTDA) de grande porte.",
+        },
+        {
+          title: "Sócio Ambiental",
+          id: 3,
+          icon: "tree",
+          price:29.99,
+          card: true,
+          description:
+            "O aplicativo Balanço Patrimonial realiza a consulta de todos os balanços que são publicados nos Diários Oficiais de empresas S.A., de capital aberto e limitadas (LTDA) de grande porte.",
+        },
+        {
+          title: "Jurídico",
+          id: 4,
+          icon: "gavel",
+          price:29.99,
+          card: true,
+          description:
+            "O aplicativo Balanço Patrimonial realiza a consulta de todos os balanços que são publicados nos Diários Oficiais de empresas S.A., de capital aberto e limitadas (LTDA) de grande porte.",
+        },
+        {
+          title: "Listas Restritivas",
+          id: 5,
+          icon: "ban",
+          price:29.99,
+          card: true,
+          description:
+            "O aplicativo Balanço Patrimonial realiza a consulta de todos os balanços que são publicados nos Diários Oficiais de empresas S.A., de capital aberto e limitadas (LTDA) de grande porte.",
+        },
+        {
+          title: "Mídia / Internet",
+          id: 6,
+          icon: "globe-americas",
+          price:29.99,
+          card: true,
+          description:
+            "O aplicativo Balanço Patrimonial realiza a consulta de todos os balanços que são publicados nos Diários Oficiais de empresas S.A., de capital aberto e limitadas (LTDA) de grande porte.",
+        },
+        {
+          title: "Bens e Imóveis",
+          id: 7,
+          icon: "gem",
+          price:29.99,
+          card: true,
+          description:
+            "O aplicativo Balanço Patrimonial realiza a consulta de todos os balanços que são publicados nos Diários Oficiais de empresas S.A., de capital aberto e limitadas (LTDA) de grande porte.",
+        },
+        {
+          title: "Cadastro",
+          id: 8,
+          icon: "male",
+          price:29.99,
+          card: true,
+          description:
+            "O aplicativo Balanço Patrimonial realiza a consulta de todos os balanços que são publicados nos Diários Oficiais de empresas S.A., de capital aberto e limitadas (LTDA) de grande porte.",
+        },
+        {
+          title: "Financeiro",
+          id: 9,
+          icon: "piggy-bank",
+          price:29.99,
+          card: true,
+          description:
+            "O aplicativo Balanço Patrimonial realiza a consulta de todos os balanços que são publicados nos Diários Oficiais de empresas S.A., de capital aberto e limitadas (LTDA) de grande porte.",
+        },
+      ],
+      items: [
         { title: "Todos", id: 0, icon: "globe" },
         {
           title: "Profissional",
@@ -129,6 +213,40 @@ export default {
       ],
     };
   },
+  methods:{
+    cardNav(id){
+      this.items = this.itemsDefault.filter(e=>e.id === id);
+      if(id == 0){
+        this.items = this.itemsDefault.title; 
+      }
+    },
+    sortCards(value){
+      switch(value){
+        case '1': 
+          this.items = [...this.itemsDefault].sort((a, b) => {
+            if (a.title > b.title) {
+              return 1;
+            }
+            if (a.title < b.title) {
+              return -1;
+            }
+            return 0;
+          });
+          break;
+        default:
+          this.items = [...this.itemsDefault].sort((a, b) => {
+             if (a.id > b.id) {
+              return 1;
+            }
+            if (a.id < b.id) {
+              return -1;
+            }
+            return 0;
+          });
+          break;
+      }
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>

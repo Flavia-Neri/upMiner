@@ -1,7 +1,7 @@
 <template>
   <nav class="content">
     <div class="items">
-      <div class="item" v-for="item in items" :key="item.id" @click="cardFilter(item.id)">
+      <div class="item" v-for="item in items" :key="item.id" @click="cardNav(item.id)">
         <font-awesome-icon class="icon" :icon="item.icon" />
         <span>{{item.title}}</span>
       </div>
@@ -13,17 +13,14 @@
 export default {
   name: "Nav",
   data: function() {
-    return {
-     
+    return {  
     };
   },
   methods:{
-    cardFilter(id){
-      console.log(id)
-    }
   },
   props: {
     items: Array,
+    cardNav:Function,
   },
 };
 </script>
@@ -61,6 +58,7 @@ export default {
       }
       &:hover {
         background-color: $main-color;
+        border:none;
         border-radius: 5px;
         box-shadow: 2px 5px 7px #a8a299;
         color:#fff;

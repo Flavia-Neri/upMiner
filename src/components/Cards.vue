@@ -9,7 +9,7 @@
         </div>
         <button>
           <span>{{ formatPrice(item.price) }}</span>
-          <span><b>Saiba mais</b></span>
+          <span class="more">Saiba mais</span>
         </button>
       </div>
     </div>
@@ -31,7 +31,8 @@ export default {
           const newValue = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value)
           return newValue;
       },
-  }
+  },
+
 };
 </script>
 
@@ -75,13 +76,13 @@ main {
         span {
           font-size: 20px;
           color: #444444;
-          font-weight: bold;
         }
         p {
           width: 80%;
           font-size: 13px;
           color: #9e9e9e;
           text-align: center;
+          line-height: 18px;
         }
       }
       button {
@@ -95,9 +96,10 @@ main {
         border-top-right-radius: 0;
         span{
             font-size:22px;
-            b{
-                font-size:18px;
-            }
+        }
+        .more{
+            font-size:18px;
+            font-weight:bold;
         }
       }
     }
