@@ -17,7 +17,7 @@
       </div>
       <div class="btn">
         <span>R$ <span>40,00</span></span>
-        <button type="submit">Saiba mais</button>
+        <router-link to="/business_history"><button type="submit">Saiba mais</button></router-link>
       </div>
     </div>
     <div

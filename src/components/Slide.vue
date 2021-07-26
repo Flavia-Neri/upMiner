@@ -59,8 +59,44 @@
 	</section>
 </template>
 
+<script>
+    import { Splide, SplideSlide } from '@splidejs/vue-splide';
+
+	export default {
+		components: {
+			Splide,
+			SplideSlide,
+		},
+		data() {
+			return {
+				options: {
+					rewind : true,
+					width  : 1020,
+					type   : "loop",
+					autoplay: true,
+					interval: 3000,
+					pagination: false,
+					perPage: 2,
+					gap: 40,
+					arrowPath:"m37.379 12.552c-.799-.761-2.066-.731-2.827.069-.762.8-.73 2.066.069 2.828l15.342 14.551h-39.963c-1.104 0-2 .896-2 2s.896 2 2 2h39.899l-15.278 14.552c-.8.762-.831 2.028-.069 2.828.393.412.92.62 1.448.62.496 0 .992-.183 1.379-.552l17.449-16.62c.756-.755 1.172-1.759 1.172-2.828s-.416-2.073-1.207-2.862z",
+					breakpoints: {
+						'768': {
+							width  : 360,
+							perPage: 1,
+							gap: 0,
+						},
+					}
+				},
+			};
+		},
+		mounted(){
+			this.$el.querySelectorAll(".splide__arrow svg").forEach(svg=>svg.setAttribute("viewBox","0 0 64 64"));
+		}
+	}
+</script>
 
 <style lang="scss">
+@import "@/sass/main.scss";
 	.slide {
 		width: 100%;
 		display: flex;
@@ -87,7 +123,7 @@
 					width: 80%;
 					text-align: left;
 					font-size: 15px;
-					color: #f0690a;
+					color: $main-color;
 					font-weight: 400;
 				}
 			}
@@ -130,41 +166,3 @@
 		}
 	}
 </style>
-
-
-
-<script>
-    import { Splide, SplideSlide } from '@splidejs/vue-splide';
-
-	export default {
-		components: {
-			Splide,
-			SplideSlide,
-		},
-		data() {
-			return {
-				options: {
-					rewind : true,
-					width  : 1020,
-					type   : "loop",
-					autoplay: true,
-					interval: 3000,
-					pagination: false,
-					perPage: 2,
-					gap: 40,
-					arrowPath:"m37.379 12.552c-.799-.761-2.066-.731-2.827.069-.762.8-.73 2.066.069 2.828l15.342 14.551h-39.963c-1.104 0-2 .896-2 2s.896 2 2 2h39.899l-15.278 14.552c-.8.762-.831 2.028-.069 2.828.393.412.92.62 1.448.62.496 0 .992-.183 1.379-.552l17.449-16.62c.756-.755 1.172-1.759 1.172-2.828s-.416-2.073-1.207-2.862z",
-					breakpoints: {
-						'768': {
-							width  : 360,
-							perPage: 1,
-							gap: 0,
-						},
-					}
-				},
-			};
-		},
-		mounted(){
-			this.$el.querySelectorAll(".splide__arrow svg").forEach(svg=>svg.setAttribute("viewBox","0 0 64 64"));
-		}
-	}
-</script>

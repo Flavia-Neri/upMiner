@@ -16,4 +16,8 @@ $btn-color: linear-gradient(51deg, #ff8e49, #f0690a, #ff8e49);
     &:hover {
       background-position: 100%;
     }
+    &:active,
+    &:focus {
+        box-shadow: none !important;
+    }
   }
