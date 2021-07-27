@@ -40,6 +40,8 @@ export default {
 @import "@/sass/main.scss";
 main {
   width: 100%;
+  max-width:1400px;
+  margin:0 auto;
   margin-top:40px;
   display: flex;
   justify-content: center;

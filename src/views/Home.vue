@@ -283,6 +283,8 @@ export default {
 <style lang="scss" scoped>
 .content-select {
     width: 100%;
+    max-width:1400px;
+    margin:0 auto;
     height: 50px;
     margin-top:30px;
   .select-div {
