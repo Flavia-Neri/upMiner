@@ -46,12 +46,13 @@ main {
 
   .content-cards {
     width: 80%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-gap: 50px;
 
     .card {
-      width: 305px;
+      width: 100%;
       height: 317px;
       display: flex;
       flex-direction: column;

@@ -1,7 +1,7 @@
 <template>
   <nav class="content">
     <div class="items">
-      <div class="item" v-for="item in items" :key="item.id" @click="cardNav(item.id)">
+      <div class="item" v-for="item in items" :key="item.id" @click="cardNav(item.category)">
         <font-awesome-icon class="icon" :icon="item.icon" />
         <span>{{item.title}}</span>
       </div>
